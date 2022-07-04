@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <title>Result</title>
+</head>
+<body>
+<div class="container-fluid" th:object="${reservation}">
+
+    <ul class="list-group">
+        <li class="list-group-item"><h1>Ihr Profil</h1></li>
+        <li class="list-group-item"
+            th:text="'First Name: ' + ${reservation.getFirstName}" />
+        <li class="list-group-item" th:text="'Last Name: ' + ${reservation.getLastName()}" />
+        <li class="list-group-item" th:text="'Age: ' + ${reservation.getAge()}" />
+        <li class="list-group-item" th:text="'Email: ' + ${reservation.email}" />
+        <li class="list-group-item" th:text="'Phone Number: ' + ${reservation.phoneNr}" />
+    </ul>
+    <a href="/reservation">New Reservation</a>
+
+    <!-- -->
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome to the Reservation-App</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css} "/>
+</head>
+<body>
+<div class="container-fluid">
+    <h1 th:text="#{title.application}">Reservation</h1>
+    <form th:action="@{/reservation}"
+          th:object="${reservation}" method="post">
+        <table class="table">
+            <tr>
+                <td><label for="firstName" th:text="#{person.firstName}">First Name:</label></td>
+                <td><input type="text" id="firstName" th:field="*{firstName}"/></td>
+                <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Error</td>
+            </tr>
+            <tr>
+                <td><label for="lastName" th:text="#{person.lastName}">Last Name:</label></td>
+                <td><input id="lastName" type="text" th:field="*{lastName}"/></td>
+                <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Error</td>
+            </tr>
+            <tr>
+                <td><label for="email" th:text="#{person.email}">Email:</label></td>
+                <td><input id="email" type="text" th:field="*{email}"/></td>
+                <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error</td>
+            </tr>
+            <tr>
+                <td><label for="phoneNr" th:text="#{person.phoneNr}">Phone Number:</label></td>
+                <td><input id="phoneNr" type="text" th:field="*{phoneNr}"/></td>
+                <td th:if="${#fields.hasErrors('phoneNr')}" th:errors="*{phoneNr}">Error</td>
+            </tr>
+            <tr>
+                <td><label for="age" th:text="#{person.age}">Age:</label></td>
+                <td><input id="age" type="number" th:field="*{age}"/></td>
+                <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Error</td>
+            </tr>
+            <select th:field="*{movieList}">
+                <option value="">Select Movie</option>
+                <option th:each="movie : ${movieList}" th:value="${movie}" th:text="${country}"></option>
+            </select>
+            <tr>
+                <td></td>
+                <td><input class="btn btn-success" type="submit"
+                           value="Submit"/> <input class="btn btn-warning" type="reset"
+                                                   value="Reset"/></td>
+            </tr>
+        </table>
+        <h3>errors</h3>
+        <ul th:if="${#fields.hasErrors('*')}" class="list-group">
+            <li th:each="err : ${#fields.errors('*')}" th:text="${err}" class="list-group-item">Input
+                is incorrect
+            </li>
+        </ul>
+        <h3>global errors</h3>
+        <ul>
+            <li th:each="e : ${#fields.detailedErrors()}"
+                th:class="${e.global}? globalerr : fielderr"><span
+                    th:text="${e.global}? '*' : ${e.fieldName}">The field name</span> |
+                <span th:text="${e.message}">The error message</span></li>
+        </ul>
+    </form>
+</div>
+</body>
+</html>
