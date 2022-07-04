@@ -2,7 +2,7 @@ package com.bbw.filmreservation;
 
 public class Film {
     private String filmName;
-    private String length;
+    private String duration;
     private String language;
 
     public String getFilmName() {
@@ -13,12 +13,12 @@ public class Film {
         this.filmName = filmName;
     }
 
-    public String getLength() {
-        return length;
+    public String getDuration() {
+        return duration;
     }
 
-    public void setLength(String length) {
-        this.length = length;
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 
     public String getLanguage() {
@@ -31,7 +31,7 @@ public class Film {
 
     public Film(String filmName, String length, String language) {
         this.filmName = filmName;
-        this.length = length;
+        this.duration = length;
         this.language = language;
     }
 }

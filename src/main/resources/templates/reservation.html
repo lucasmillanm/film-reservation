@@ -36,9 +36,10 @@
                 <td><input id="age" type="number" th:field="*{age}"/></td>
                 <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Error</td>
             </tr>
-            <select class="form-control" th:field="${reservation.movieID}" id="dropOperator">
+            <select class="form-control" th:field="${reservation.movieID}">
                 <option value="0">select movie</option>
-                <option th:each="movie : ${reservation.getMovieList}" th:value="${movie.getFilmName}" th:text="${movie.getFilmName}"></option>
+                <option th:each="movie : ${reservation.getMovieList}" th:value="${movie.getFilmName}"
+                        th:text="'Movie Name: ' + ${movie.getFilmName} + ' / Duration: ' + ${movie.getDuration} + ' / Language: ' + ${movie.getLanguage}"></option>
             </select>
             <tr>
                 <td></td>
