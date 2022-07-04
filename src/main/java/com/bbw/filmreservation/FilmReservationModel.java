@@ -15,11 +15,12 @@ public class FilmReservationModel {
     @Email
     private String email;
 
+    @NotNull
     @Pattern(regexp = "\\d{3}-\\d{3}-\\d{4}")
-    private String telNummer;
+    private String phoneNr;
 
     @Min(12)
-    private int alter;
+    private int age;
 
-    private boolean withExtra;
+    private boolean withExtras;
 }
