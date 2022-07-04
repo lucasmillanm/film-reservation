@@ -26,6 +26,7 @@ public class FilmReservationModel {
 
     private List<Film> movieList = new ArrayList<>();
 
+    @NotNull
     private String movieID;
 
     public String getMovieID() {
