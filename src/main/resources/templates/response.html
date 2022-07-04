@@ -14,9 +14,9 @@
         <li class="list-group-item" th:text="'Movie Name: ' + ${reservation.getMovieID}" />
         <li class="list-group-item" th:text="'First Name: ' + ${reservation.getFirstName}" />
         <li class="list-group-item" th:text="'Last Name: ' + ${reservation.getLastName()}" />
-        <li class="list-group-item" th:text="'Age: ' + ${reservation.getAge()}" />
         <li class="list-group-item" th:text="'Email: ' + ${reservation.email}" />
         <li class="list-group-item" th:text="'Phone Number: ' + ${reservation.phoneNr}" />
+        <li class="list-group-item" th:text="'Age: ' + ${reservation.getAge()}" />
     </ul>
     <a href="/reservation">New Reservation</a>
 
