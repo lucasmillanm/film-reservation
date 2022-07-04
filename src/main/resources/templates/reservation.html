@@ -36,7 +36,7 @@
                 <td><input id="age" type="number" th:field="*{age}"/></td>
                 <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Error</td>
             </tr>
-            <select class="form-control" id="dropOperator">
+            <select class="form-control" th:field="${reservation.movieID}" id="dropOperator">
                 <option value="0">select movie</option>
                 <option th:each="movie : ${reservation.getMovieList}" th:value="${movie.getFilmName}" th:text="${movie.getFilmName}"></option>
             </select>

@@ -11,7 +11,7 @@
 
     <ul class="list-group">
         <li class="list-group-item"><h1>Ihr Profil</h1></li>
-        <li class="list-group-item" th:each="movie : ${reservation.getMovieList}" th:value="${movie.getFilmName}" th:text="'Movie Name: ' + ${movie.getFilmName}" />
+        <li class="list-group-item" th:text="'Movie Name: ' + ${reservation.getMovieID}" />
         <li class="list-group-item" th:text="'First Name: ' + ${reservation.getFirstName}" />
         <li class="list-group-item" th:text="'Last Name: ' + ${reservation.getLastName()}" />
         <li class="list-group-item" th:text="'Age: ' + ${reservation.getAge()}" />

@@ -1,7 +1,7 @@
 package com.bbw.filmreservation;
 
-import jakarta.validation.constraints.*;
 
+import javax.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,13 +19,22 @@ public class FilmReservationModel {
     private String email;
 
     @NotNull
-    @Pattern(regexp = "\\d{3}-\\d{3}-\\d{4}")
     private String phoneNr;
 
     @Min(12)
     private int age;
 
     private List<Film> movieList = new ArrayList<>();
+
+    private String movieID;
+
+    public String getMovieID() {
+        return movieID;
+    }
+
+    public void setMovieID(String movieID) {
+        this.movieID = movieID;
+    }
 
     public FilmReservationModel() {
         movieList.add(new Film("Batman", "200 min", "English"));
