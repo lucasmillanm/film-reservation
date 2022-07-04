@@ -3,7 +3,7 @@
 <head>
     <title>Welcome to the Reservation-App</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css} "/>
 </head>
 <body>
 <div class="container-fluid">
@@ -36,9 +36,9 @@
                 <td><input id="age" type="number" th:field="*{age}"/></td>
                 <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Error</td>
             </tr>
-            <select th:field="*{movieList}">
-                <option value="">Select Movie</option>
-                <option th:each="movie : ${movieList}" th:value="${movie}" th:text="${country}"></option>
+            <select class="form-control" id="dropOperator">
+                <option value="0">select movie</option>
+                <option th:each="movie : ${reservation.getMovieList}" th:value="${movie.getFilmName}" th:text="${movie.getFilmName}"></option>
             </select>
             <tr>
                 <td></td>

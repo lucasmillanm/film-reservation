@@ -23,14 +23,17 @@ public class FilmReservationController {
     @GetMapping("/reservation")
     public String reservationForm(Model model) {
         model.addAttribute("reservation", new FilmReservationModel());
+        model.addAttribute("movieList", new FilmReservationModel().getMovieList());
         return "reservation";
     }
 
     @PostMapping("/reservation")
     public String checkReservationInfo(@ModelAttribute @Valid FilmReservationModel reservation, BindingResult bindingResult, Model model) {
-        log.info("check person info/post");
+        log.info("check reservation info/post");
         model.addAttribute("reservation", reservation);
+        model.addAttribute("movieList", new FilmReservationModel().getMovieList());
         if (bindingResult.hasErrors()) {
+            log.info("has errors");
             return "reservation";
         }
         return "response";

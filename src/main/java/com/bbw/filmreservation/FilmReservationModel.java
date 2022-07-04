@@ -25,7 +25,6 @@ public class FilmReservationModel {
     @Min(12)
     private int age;
 
-    @NotNull
     private List<Film> movieList = new ArrayList<>();
 
     public FilmReservationModel() {
