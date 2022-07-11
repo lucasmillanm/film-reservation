@@ -12,7 +12,7 @@
           th:object="${reservation}" method="post">
         <table class="table">
             <select class="form-control" th:field="${reservation.movieID}">
-                <option value="">select movie</option>
+                <option value="">Select Movie</option>
                 <option th:each="movie : ${reservation.getMovieList}" th:value="${movie.getFilmName}"
                         th:text="'Movie Name: ' + ${movie.getFilmName} + ' / Duration: ' + ${movie.getDuration} + ' / Language: ' + ${movie.getLanguage}"></option>
             </select>
@@ -47,7 +47,7 @@
                            value="Submit"/> <input class="btn btn-warning" type="reset"
                                                    value="Reset"/></td>
             </tr>
-        </table>
+        </table><!--
         <h3>errors</h3>
         <ul th:if="${#fields.hasErrors('*')}" class="list-group">
             <li th:each="err : ${#fields.errors('*')}" th:text="${err}" class="list-group-item">Input
@@ -60,7 +60,7 @@
                 th:class="${e.global}? globalerr : fielderr"><span
                     th:text="${e.global}? '*' : ${e.fieldName}">The field name</span> |
                 <span th:text="${e.message}">The error message</span></li>
-        </ul>
+        </ul>-->
     </form>
 </div>
 </body>
